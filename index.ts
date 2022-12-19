@@ -80,4 +80,4 @@ async function compile(options: CompileOptions) {
         jsxImportSource: options.importMap.imports.react,
     });
 }
-export default compile;
+export { compile };
