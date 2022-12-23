@@ -78,6 +78,7 @@ async function compile(options: CompileOptions) {
         plugins: [urlImportsPlugin(options.importMap)],
         jsx: "automatic",
         jsxImportSource: options.importMap.imports.react,
+        splitting: true,
     });
 }
 export { compile };
