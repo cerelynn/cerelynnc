@@ -69,7 +69,10 @@ function urlImportsPlugin(importMap: ImportMap): esbuild.Plugin {
     };
 }
 
-async function compile(options: CompileOptions) {
+async function compile(
+    options: CompileOptions,
+    esbuildOptions?: esbuild.BuildOptions
+) {
     await esbuild.build({
         entryPoints: [options.inputPoint],
         outdir: options.outputPoint,
@@ -79,6 +82,7 @@ async function compile(options: CompileOptions) {
         jsx: "automatic",
         jsxImportSource: options.importMap.imports.react,
         splitting: true,
+        ...esbuildOptions,
     });
 }
 export { compile };
